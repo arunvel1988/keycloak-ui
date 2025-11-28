@@ -1,7 +1,7 @@
 ######################################################
 
 docker run -d \
-  -p 8080:8080 \
+  -p 8082:8080 \
   -e KC_BOOTSTRAP_ADMIN_USERNAME=admin \
   -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin \
   -e PROXY_ADDRESS_FORWARDING=true \
