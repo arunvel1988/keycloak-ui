@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   flaskapp:
     build: .
@@ -6,7 +7,19 @@ services:
     ports:
       - "5000:5000"
     environment:
-      KEYCLOAK_URL: "http://localhost:8082"   # your running Keycloak
-      REALM: "demo-realm"                     # you will create this
-      CLIENT_ID: "flask-app"                  # you will create this
+      KEYCLOAK_URL: "http://keycloak:8080"
+      REALM: "demo-realm"
+      CLIENT_ID: "flask-app"
+    depends_on:
+      - keycloak
+    restart: always
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.4.6
+    command: start-dev
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "8082:8080"
     restart: always
