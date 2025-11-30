@@ -10,6 +10,4 @@ services:
       KEYCLOAK_URL: "http://keycloak:8080"
       REALM: "demo-realm"
       CLIENT_ID: "flask-app"
-    depends_on:
-      - keycloak
     restart: always
