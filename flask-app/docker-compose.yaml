@@ -13,13 +13,3 @@ services:
     depends_on:
       - keycloak
     restart: always
-
-  keycloak:
-    image: quay.io/keycloak/keycloak:26.4.6
-    command: start-dev
-    environment:
-      KC_BOOTSTRAP_ADMIN_USERNAME: admin
-      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
-    ports:
-      - "8082:8080"
-    restart: always
